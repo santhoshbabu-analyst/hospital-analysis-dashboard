@@ -50,6 +50,11 @@ Summarizes room and bed occupancy by room type and status (Available / Occupied)
 
 ---
 
+## 📸 Dashboard Preview
+![Hospital Analysis Dashboard](Screenshots/Hospital_Dashboards.png)
+
+---
+
 ## 📈 Dashboards Overview  
 
 ### 1️⃣ Overview Dashboard  
@@ -158,46 +163,8 @@ RETURN
 
 ---
 
-## 🧰 Tools & Technologies  
-- **Database:** MySQL  
-- **Data Processing:** SQL Views  
-- **Visualization:** Power BI  
-- **Languages:** SQL, DAX, Python  
-- **Data Source:** Excel files  
+## 📧 Contact  
+📩 **Santhosh Babu S**  
+📊 *Data Analyst Aspirant | Python & Power BI Enthusiast*  
+📧 **santhoshbabus.analyst@gmail.com**  
 
----
-
-## 📁 Folder Structure  
-```
-Hospital_Analysis_Dashboard/
-│
-├── Dataset/
-│   ├── patient_info.xlsx
-│   ├── bills.xlsx
-│   ├── appointments.xlsx
-│   └── ...
-│
-├── SQL_Views/
-│   ├── patient_info_view.sql
-│   ├── beds_info_view.sql
-│   ├── medical_stock_info_view.sql
-│
-├── PowerBI_Dashboard/
-│   └── Hospital_Analysis.pbix
-│
-├── Screenshots/
-│   ├── overview.png
-│   ├── patient.png
-│   ├── doctor.png
-│   ├── hospital information.png
-│   └── finance.png
-│
-└── README.md
-```
-
----
-
-## 👨‍💻 Developer  
-**Santhosh Babu**  
-*Data Analyst Aspirant | SQL | Power BI | Python | DAX | Excel*  
-📧 santhoshbabus.analyst@gmail.com
