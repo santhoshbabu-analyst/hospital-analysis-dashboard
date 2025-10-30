@@ -1,0 +1,58 @@
+// 🧮 HOSPITAL ANALYSIS DASHBOARD — DAX MEASURES
+
+// Total Bill Amount (After Discount)
+Total_Bill_Amt =
+VAR discount =
+    CALCULATE(SUM(Bills[Value]), Bills[Charge_Type] = "discount")
+VAR totalamount =
+    SUM(Bills[Value])
+RETURN
+    totalamount - discount
+
+// Total Doctors
+Total Doctors = DISTINCTCOUNT('patient_info'[doctor_id])
+
+// Total Female Patients
+Total Female Patients =
+CALCULATE(
+    COUNTROWS('patient_info'),
+    'patient_info'[patient_gender] = "Female"
+)
+
+// Total Male Patients
+Total Male Patients =
+CALCULATE(
+    COUNTROWS('patient_info'),
+    'patient_info'[patient_gender] = "Male"
+)
+
+// Total Medicine Sales Quantity
+Total_Med_Sales_QTY = SUM(medicine_patient[qty])
+
+// Total Stock Quantity
+Total_Stock_QTY = SUM(Medical_Stock_Info[stock_qty])
+
+// Average Star Rating
+Sum of satisfaction_rating star rating =
+VAR __MAX_NUMBER_OF_STARS = 5
+VAR __MIN_RATED_VALUE = 0
+VAR __MAX_RATED_VALUE = 5
+VAR __BASE_VALUE = SUM('patient_info'[satisfaction_rating])
+VAR __NORMALIZED_BASE_VALUE =
+	MIN(
+		MAX(
+			DIVIDE(
+				__BASE_VALUE - __MIN_RATED_VALUE,
+				__MAX_RATED_VALUE - __MIN_RATED_VALUE
+			),
+			0
+		),
+		1
+	)
+VAR __STAR_RATING = ROUND(__NORMALIZED_BASE_VALUE * __MAX_NUMBER_OF_STARS, 0)
+RETURN
+	IF(
+		NOT ISBLANK(__BASE_VALUE),
+		REPT(UNICHAR(9733), __STAR_RATING)
+			& REPT(UNICHAR(9734), __MAX_NUMBER_OF_STARS - __STAR_RATING)
+	)
