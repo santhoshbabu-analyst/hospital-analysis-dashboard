@@ -79,78 +79,10 @@ Summarizes room and bed occupancy by room type and status (Available / Occupied)
 
 ---
 
-## 🧮 Key DAX Measures  
+## ⚙️ DAX Measures
+All key calculations — including total bill amount (after discount), patient distribution, and operational KPIs — are written in DAX for enhanced flexibility in Power BI.  
 
-**Total Bill Amount**
-```DAX
-Total_Bill_Amt =
-VAR discount =
-    CALCULATE(SUM(Bills[Value]), Bills[Charge_Type] = "discount")
-VAR totalamount =
-    SUM(Bills[Value])
-RETURN
-    totalamount - discount
-```
-
-**Total Doctors**
-```DAX
-Total Doctors = DISTINCTCOUNT('patient_info'[doctor_id])
-```
-
-**Total Female Patients**
-```DAX
-Total Female Patients =
-CALCULATE(
-    COUNTROWS('patient_info'),
-    'patient_info'[patient_gender] = "Female"
-)
-```
-
-**Total Male Patients**
-```DAX
-Total Male Patients =
-CALCULATE(
-    COUNTROWS('patient_info'),
-    'patient_info'[patient_gender] = "Male"
-)
-```
-
-**Total Medicine Sales Quantity**
-```DAX
-Total_Med_Sales_QTY = SUM(medicine_patient[qty])
-```
-
-**Total Stock Quantity**
-```DAX
-Total_Stock_QTY = SUM(Medical_Stock_Info[stock_qty])
-```
-
-**Average Star Rating**
-```DAX
-Sum of satisfaction_rating star rating =
-VAR __MAX_NUMBER_OF_STARS = 5
-VAR __MIN_RATED_VALUE = 0
-VAR __MAX_RATED_VALUE = 5
-VAR __BASE_VALUE = SUM('patient_info'[satisfaction_rating])
-VAR __NORMALIZED_BASE_VALUE =
-	MIN(
-		MAX(
-			DIVIDE(
-				__BASE_VALUE - __MIN_RATED_VALUE,
-				__MAX_RATED_VALUE - __MIN_RATED_VALUE
-			),
-			0
-		),
-		1
-	)
-VAR __STAR_RATING = ROUND(__NORMALIZED_BASE_VALUE * __MAX_NUMBER_OF_STARS, 0)
-RETURN
-	IF(
-		NOT ISBLANK(__BASE_VALUE),
-		REPT(UNICHAR(9733), __STAR_RATING)
-			& REPT(UNICHAR(9734), __MAX_NUMBER_OF_STARS - __STAR_RATING)
-	)
-```
+📄 DAX file: [`dax/hospital_measures.dax`](dax/hospital_measures.dax)
 
 ---
 
@@ -163,8 +95,14 @@ RETURN
 
 ---
 
-## 📧 Contact  
-📩 **Santhosh Babu S**  
-📊 *Data Analyst Aspirant | Python & Power BI Enthusiast*  
-📧 **santhoshbabus.analyst@gmail.com**  
+## 🔗 Live Dashboard  
+View the interactive version of the dashboard here:  
+[**Power BI Live Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiMzFlMjAyODUtYTcxZC00MTg0LWJkNGMtZWVhNjI1Mjk2NmU3IiwidCI6IjNjY2U5Nzc1LTVjN2QtNGFjOS1iNjBkLWU3OTk2NjM1M2U1ZiJ9)
 
+---
+
+## 📬 Contact
+**Santhosh Babu S**  
+📊 *Data Analyst Aspirant | SQL | Power BI | Python | DAX | Excel*  
+📧 [santhoshbabus.analyst@gmail.com](mailto:santhoshbabus.analyst@gmail.com)  
+🔗 [LinkedIn](https://www.linkedin.com/in/santhoshbabus) | [GitHub](https://github.com/santhoshbabu-analyst)
