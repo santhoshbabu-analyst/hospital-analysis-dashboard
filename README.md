@@ -123,7 +123,7 @@ All dataset files are stored in the `Dataset/` folder and integrated into **MySQ
 ## 🔗 Live Dashboard  
 
 View the interactive dashboard on Power BI:  
-👉 [**Hospital Analysis Power BI Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiMzFlMjAyODUtYTcxZC00MTg0LWJkNGMtZWVhNjI1Mjk2NmU3IiwidCI6IjNjY2U5Nzc1LTVjN2QtNGFjOS1iNjBkLWU3OTk2NjM1M2U1ZiJ9)
+👉 [**Hospital Analysis Power BI Dashboard**](https://app.powerbi.com/view?r=eyJrIjoiOTFmYmUzMzEtMjZiNy00ZWRkLWFiNzMtOWIxMjQ0NWM3MmFhIiwidCI6IjA2YzRkZTk4LTFlY2UtNDdiOC04OTI2LWNhYTAxOTU2MWQ1NyJ9&pageName=99c1bfc27d721543d2f4)
 
 ---
 
